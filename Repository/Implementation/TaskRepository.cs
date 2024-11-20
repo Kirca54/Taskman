@@ -12,8 +12,17 @@ namespace Repository.Implementation
     {
         //TODO: Impelenet with DB
 
-        // Temporary in-memory storage
-        private static List<TaskItem> _tasks = new List<TaskItem>();
+        // In-memory storage
+        private static List<TaskItem> _tasks = new List<TaskItem>{
+        new TaskItem
+        {
+            Id = 1,
+            Title = "Sample Task",
+            Description = "This is a sample task.",
+            Status = "Test"
+        }
+
+        };
 
         public IEnumerable<TaskItem> GetAll()
         {
