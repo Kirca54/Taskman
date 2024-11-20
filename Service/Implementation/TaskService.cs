@@ -1,4 +1,4 @@
-﻿using Domain;
+﻿using Domain.Model;
 using Repository.Interface;
 using Service.Interface;
 using System;
