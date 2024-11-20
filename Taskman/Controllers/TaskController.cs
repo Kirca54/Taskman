@@ -1,4 +1,5 @@
 ﻿using Domain.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interface;
@@ -7,6 +8,7 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class TaskController : ControllerBase
     {
         private readonly ITaskService _taskService;
@@ -52,7 +54,6 @@ namespace WebAPI.Controllers
         [HttpPut("{id}")]
         public ActionResult UpdateTask(int id, [FromBody] TaskItem task)
         {
-            //TODO: Exception handling
             var taskCheck = _taskService.GetDetailsForTask(id);
             if (taskCheck == null)
             {
